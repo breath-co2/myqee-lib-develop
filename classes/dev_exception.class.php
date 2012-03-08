@@ -99,7 +99,7 @@ namespace Library\MyQEE\Develop
          * respects error_reporting settings.
          *
          * @throws  ErrorException
-         * @return  TRUE
+         * @return  true
          */
         public static function error_handler( $code, $error, $file = null, $line = null )
         {
@@ -111,7 +111,7 @@ namespace Library\MyQEE\Develop
             }
 
             // Do not execute the PHP error handler
-            return TRUE;
+            return true;
         }
 
         /**
@@ -343,7 +343,7 @@ namespace Library\MyQEE\Develop
             $format = '% ' . strlen( $range['end'] ) . 'd';
 
             $source = '';
-            while ( ($row = @fgets( $file )) !== FALSE )
+            while ( ($row = @fgets( $file )) !== false )
             {
                 // Increment the line number
                 if ( ++ $line > $range['end'] ) break;
@@ -482,7 +482,7 @@ namespace Library\MyQEE\Develop
                 {
                     $output[] = "<span>(";
 
-                    $var[$marker] = TRUE;
+                    $var[$marker] = true;
                     foreach ( $var as $key => & $val )
                     {
                         if ( $key === $marker ) continue;
@@ -532,7 +532,7 @@ namespace Library\MyQEE\Develop
                 {
                     $output[] = "<code>{";
 
-                    $objects[$hash] = TRUE;
+                    $objects[$hash] = true;
                     foreach ( $array as $key => & $val )
                     {
                         if ( $key[0] === "\x00" )
@@ -564,7 +564,7 @@ namespace Library\MyQEE\Develop
             }
             else
             {
-                return '<small>' . \gettype( $var ) . '</small> ' . \htmlspecialchars( \print_r( $var, TRUE ), \ENT_NOQUOTES, \Core::$charset );
+                return '<small>' . \gettype( $var ) . '</small> ' . \htmlspecialchars( \print_r( $var, true ), \ENT_NOQUOTES, \Core::$charset );
             }
         }
 

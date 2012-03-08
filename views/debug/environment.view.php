@@ -1,4 +1,3 @@
-
 <style type="text/css">
 #environment_div { background: #ddd; font-size: 1em; font-family:sans-serif; text-align: left; color: #111; }
 #environment_div h1,
