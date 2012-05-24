@@ -23,7 +23,7 @@ class Debug extends \FB
     {
         if ( null === static::$instance )
         {
-            static::$instance = new Debug();
+            static::$instance = new \Debug();
         }
         return static::$instance;
     }
@@ -33,7 +33,7 @@ class Debug extends \FB
      */
     public function profiler($type='default')
     {
-        return Debug\Profiler::instance($type);
+        return Debug_Profiler::instance($type);
     }
 
     /**

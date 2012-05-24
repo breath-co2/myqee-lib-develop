@@ -87,7 +87,7 @@ $envi_id = uniqid('envi');
 			<?php foreach ($GLOBALS[$var] as $key => $value): ?>
 			<tr>
 				<td class="lefttd" width="220"><code><?php echo $key ?></code></td>
-				<td><pre style="padding:0;margin:0;"><?php echo Dev_Exception::dump($value) ?></pre></td>
+				<td><pre style="padding:0;margin:0;"><?php echo DevException::dump($value) ?></pre></td>
 			</tr>
 			<?php endforeach ?>
 		</table>

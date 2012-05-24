@@ -5,12 +5,7 @@ namespace
 
     class Debug extends \Library\MyQEE\Develop\Debug{}
 
-    class Dev_Exception extends \Library\MyQEE\Develop\Dev_Exception{}
-}
+    class DevException extends \Library\MyQEE\Develop\DevException{}
 
-namespace Debug
-{
-    exit;
-
-    class Profiler extends \Library\MyQEE\Develop\Debug\Profiler{}
+    class Debug_Profiler extends \Library\MyQEE\Develop\Debug_Profiler{}
 }

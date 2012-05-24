@@ -48,9 +48,9 @@ return false;
 <h1><span class="type"><?php echo $type ?> [ <?php echo $code ?> ]:</span> <span class="message"><?php echo $message ?></span></h1>
 <div id="<?php echo $error_id ?>" class="content">
 <p><span class="file"><?php echo Core::debug_path($file) ?> [ <?php echo $line ?> ]</span></p>
-<?php echo Dev_Exception::debug_source($file, $line) ?>
+<?php echo DevException::debug_source($file, $line) ?>
 <ol class="trace">
-<?php foreach (Dev_Exception::trace($trace) as $i => $step): ?>
+<?php foreach (DevException::trace($trace) as $i => $step): ?>
 <li>
 <p>
 	<span class="file">
@@ -69,7 +69,7 @@ return false;
 	<?php foreach ($step['args'] as $name => $arg): ?>
 		<tr>
 			<td><code><?php echo $name ?></code></td>
-			<td><pre style="padding:0;margin:0;"><?php echo Dev_Exception::dump($arg) ?></pre></td>
+			<td><pre style="padding:0;margin:0;"><?php echo DevException::dump($arg) ?></pre></td>
 		</tr>
 	<?php endforeach ?>
 	</table>

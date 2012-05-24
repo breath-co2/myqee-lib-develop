@@ -1,5 +1,5 @@
 <?php
-namespace Library\MyQEE\Develop\Debug;
+namespace Library\MyQEE\Develop;
 
 /**
  * 系统运行信息
@@ -11,7 +11,7 @@ namespace Library\MyQEE\Develop\Debug;
  * @copyright  Copyright (c) 2008-2012 myqee.com
  * @license    http://www.myqee.com/license.html
  */
-class Profiler
+class Debug_Profiler
 {
 
     protected $type;
@@ -31,7 +31,7 @@ class Profiler
     {
         if ( !isset(static::$instances[$type]) )
         {
-            static::$instances[$type] = new Profiler($type);
+            static::$instances[$type] = new \Debug_Profiler($type);
         }
         return static::$instances[$type];
     }

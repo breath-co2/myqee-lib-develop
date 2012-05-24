@@ -21,7 +21,7 @@ namespace Library\MyQEE\Develop
      * @copyright  Copyright (c) 2008-2012 myqee.com
      * @license    http://www.myqee.com/license.html
      */
-    class Dev_Exception extends \Exception
+    class DevException extends \Exception
     {
 
         /**
@@ -48,7 +48,8 @@ namespace Library\MyQEE\Develop
         /**
          * @var  array  PHP error code => human readable name
          */
-        public static $php_errors = array(
+        public static $php_errors = array
+        (
             \E_PAGE_NOT_FOUND    => '404 Error',
             \E_DATABASE_ERROR    => 'Database Error',
             \E_ERROR             => 'Fatal Error',
@@ -155,7 +156,7 @@ namespace Library\MyQEE\Develop
                     \Core::close_buffers(false);
                 }
 
-                if ( $e->getCode() == 43 )
+                if ( $e->getCode() == 43 || $e->getCode() == 404 )
                 {
                     \HttpIO::status(404);
                 }
