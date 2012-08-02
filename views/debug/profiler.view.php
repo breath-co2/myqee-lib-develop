@@ -4,7 +4,7 @@ if (IS_CLI)
 
     //得到最前面的字符最大长度
     $maxlen = 0;
-    foreach (Debug\Profiler::groups() as $group => $benchmarks)
+    foreach (Debug_Profiler::groups() as $group => $benchmarks)
     {
         foreach ($benchmarks as $name => $tokens)
         {
@@ -17,7 +17,7 @@ if (IS_CLI)
     echo "\x1b[0;33;44m";
     echo str_pad('PHP Version:'.PHP_VERSION,$strlen,' ',STR_PAD_BOTH);
 
-    foreach (Debug\Profiler::groups() as $group => $benchmarks)
+    foreach (Debug_Profiler::groups() as $group => $benchmarks)
     {
         echo "\x1b[32m";
         echo "\n".str_pad($group,$strlen,'-',STR_PAD_BOTH);
@@ -32,7 +32,7 @@ if (IS_CLI)
                 echo "\x1b[36m";
                 echo $key;
             }
-            $stats = Debug\Profiler::stats($tokens);
+            $stats = Debug_Profiler::stats($tokens);
 
             echo "\x1b[36m";
             echo "\n".str_pad('Time:',$maxlen,' ',STR_PAD_LEFT);
@@ -58,7 +58,7 @@ if (IS_CLI)
     echo "\x1b[33m";
 
 
-    $stats = Debug\Profiler::application();
+    $stats = Debug_Profiler::application();
     echo "\x1b[32m";
     echo "\n".str_pad('Application Execution',$strlen,'-',STR_PAD_BOTH);
     echo "\n".str_pad('',$maxlen,' ',STR_PAD_LEFT);
@@ -152,7 +152,7 @@ function profilerdiv_reload(){
 </script>
 <div style="position:absolute;z-index:99999;width:100%;left:0;">
 <div style="padding:10px 10px 0 10px;">
-<div class="profilerdiv"><a name="onlineprofiler"></a><?php foreach (Debug\Profiler::groups() as $group => $benchmarks): ?><table class="profiler">
+<div class="profilerdiv"><a name="onlineprofiler"></a><?php foreach (Debug_Profiler::groups() as $group => $benchmarks): ?><table class="profiler">
         <tr class="profiler_group">
             <th class="profiler_name" colspan="5" style="float:none;"><?php echo ucfirst($group) ?></th>
         </tr>
@@ -165,7 +165,7 @@ function profilerdiv_reload(){
         </tr>
         <?php foreach ($benchmarks as $name => $tokens): ?>
         <tr class="profiler_mark profiler_time">
-            <?php $stats = Debug\Profiler::stats($tokens); ?>
+            <?php $stats = Debug_Profiler::stats($tokens); ?>
             <th class="profiler_name" rowspan="2"><?php echo $name, ' (', count($tokens), ')' ?></th>
             <?php foreach (array('min', 'max', 'average', 'total') as $key): ?>
             <td class="profiler_<?php echo $key ?>"><?php echo number_format($stats[$key]['time'], 6), ' ', 'seconds' ?></td>
@@ -261,14 +261,14 @@ if ( Core::debug()->profiler('filelist')->is_open() )
             <?php foreach ($filelist as $i=>$value): ?>
         <tr class="final profiler_mark profiler_memory">
             <td class="profiler_average" style="width:4%;text-align:center;"><?php echo ($i+1); ?></td>
-            <td style="width:8%"><?php echo Debug\Profiler::bytes(filesize($value));?></td>
+            <td style="width:8%"><?php echo Debug_Profiler::bytes(filesize($value));?></td>
             <td style="width:88%"><?php echo Core::debug_path($value); ?></td>
         </tr>
             <?php endforeach; ?>
 </table><?php
 }
 ?><table class="profiler">
-        <?php $stats = Debug\Profiler::application() ?>
+        <?php $stats = Debug_Profiler::application() ?>
         <tr class="final profiler_mark profiler_time">
             <th class="profiler_name" rowspan="2" style="float:none;"><?php echo 'Application Execution ('.$stats['count'].')' ?></th>
             <?php foreach (array('min', 'max', 'average', 'current') as $key): ?>
